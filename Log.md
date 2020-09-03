@@ -21,3 +21,14 @@ has_many :events
 - Speciality
 - Phone Number
 - Email
+
+Done:
+
+- Tutor Resource
+- Event Resource
+- Tutor Routes
+- Event Routes
+
+## 9/3/2020
+
+
