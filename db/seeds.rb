@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 doak = Tutor.create(name: 'Doak', speciality: 'Science', phonenumber: '555-555-5555', email:'doak@email.com')
+
+biology = Event.create(name: 'Biology', description: 'Bio Study Group', date: 9/8/2020, location: 'zoom', spaces: 5, tutor_id:1)
