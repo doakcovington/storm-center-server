@@ -1,12 +1,12 @@
 class Api::V1::TutorsController < ApplicationController
   def index
     tutors = Tutor.all 
-    render json: tutors
+    render json: TutorSerializer.new(tutors)
   end
 
   def show
     tutor = Tutor.find(params[:id])
-    render json: tutor
+    render json: TutorSerializer.new(tutor)
   end
 
   def create
