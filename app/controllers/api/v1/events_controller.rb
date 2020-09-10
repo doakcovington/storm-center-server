@@ -21,7 +21,12 @@ class Api::V1::EventsController < ApplicationController
 
   def destroy
     event = Event.find(params[:id])
-    event.destroy
+    unless event.nil?
+      event.destroy
+      render json: event #fixed end of JSON error
+    else
+      render json: {error: "Event Not Found"}, status: 404
+    end
   end
 
   private
