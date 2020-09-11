@@ -20,8 +20,14 @@ class Api::V1::TutorsController < ApplicationController
 
   def destroy
     tutor = Tutor.find(params[:id])
-    tutor.destroy
+    unless tutor.nil?
+      tutor.destroy
+      render json: tutor #fixed end of JSON error
+    else
+      render json: {error: "Event Not Found"}, status: 404
+    end
   end
+
 
   private
 
