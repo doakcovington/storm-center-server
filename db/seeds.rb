@@ -9,5 +9,5 @@
 doak = Tutor.create(name: 'Doak', speciality: 'Science', phonenumber: '555-555-5555', email:'doak@email.com')
 doak = Tutor.create(name: 'Heidi', speciality: 'Support', phonenumber: '444-444-4444', email:'heidi@email.com')
 
-biology = Event.create(name: 'Biology', description: 'Bio Study Group', date: DateTime.new(2020, 9, 8), location: 'zoom', spaces: 5, tutor_id:1)
-zoom = Event.create(name: 'Zoom 101', description: 'Learn to zoom', date: DateTime.new(2020, 9, 8), location: 'zoom', spaces: 10, tutor_id:2)
+biology = Event.create(name: 'Biology', description: 'Bio Study Group', date: DateTime.new(2020, 9, 8), location: 'zoom', spaces: 5, time: "3:30", tutor_id:1)
+zoom = Event.create(name: 'Zoom 101', description: 'Learn to zoom', date: DateTime.new(2020, 9, 8), location: 'zoom', spaces: 10, time: "2:30", tutor_id:2)
