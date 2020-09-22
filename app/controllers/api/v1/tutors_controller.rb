@@ -32,6 +32,6 @@ class Api::V1::TutorsController < ApplicationController
   private
 
   def tutor_params
-    params.require(:tutor).permit(:name, :speciality, :phonenumber, :email)
+    params.require(:tutor).permit(:name, :speciality, :phonenumber, :email, :admin_id)
   end
 end
