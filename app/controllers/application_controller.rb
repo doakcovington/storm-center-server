@@ -18,4 +18,15 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def current_admin
+    if decode_token
+      admin_id = decode_token[0]['admin_id']
+      @admin = Admin.find_by(id: admin_id)
+    end
+  end
+
+  def logged_in?
+    !!current_admin
+  end
+
 end
