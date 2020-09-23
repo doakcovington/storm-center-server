@@ -4,8 +4,18 @@ class ApplicationController < ActionController::API
     JWT.encode(payload, 'pray_for_snow')
   end
 
+  def auth_header
+    request.headers['Authorization']
+  end
+
   def decode_token(token)
-    JWT.decode(token, 'pray_for_snow')[0]
+    if auth_header
+      token = auth_header.split(' ')[1]
+      begin
+        JWT.decode(token, 'pray_for_snow', true, algorithm: 'HS256')
+      resuce JWT::DecodeError
+        nill
+    end
   end
 
 end
