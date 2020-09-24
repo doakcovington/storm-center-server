@@ -1,6 +1,6 @@
 class Api::V1::AdminsController < ApplicationController
 
-  skip_before_action :authroized, only [:create] #skips authorized action to allow admin creation
+  skip_before_action :authroized, only: [:create] #skips authorized action to allow admin creation
 
   def create
     @admin = Admin.create(admin_params)
