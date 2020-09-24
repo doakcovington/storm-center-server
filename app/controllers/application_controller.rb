@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::API
+
+  #calls authorized before anything else
+  before_action :authorized 
   
   def encode_token(payload)
     JWT.encode(payload, 'pray_for_snow')
@@ -29,8 +32,8 @@ class ApplicationController < ActionController::API
     !!current #double bang (!!) returns boolean value
   end     
     
-  def authorized
-      render json: {message: 'Please Log In'}, status: :unauthorized unless logged_in?
-    end
+  def authorized #Prompts user to log in if they are not authorized to view page or do action
+    render json: {message: 'Please Log In'}, status: :unauthorized unless logged_in?
+  end
 
 end
