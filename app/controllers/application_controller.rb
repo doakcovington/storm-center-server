@@ -26,9 +26,10 @@ class ApplicationController < ActionController::API
   end
 
   def logged_in?
-    !!current
+    !!current #double bang (!!) returns boolean value
+  end     
     
-    def authorized
+  def authorized
       render json: {message: 'Please Log In'}, status: :unauthorized unless logged_in?
     end
 
