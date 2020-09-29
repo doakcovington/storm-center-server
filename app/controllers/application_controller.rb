@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
   #calls authorized before anything else
-  before_action :authorized 
+  #before_action :authorized 
   
   def encode_token(payload)
     JWT.encode(payload, 'pray_for_snow')
@@ -18,6 +18,7 @@ class ApplicationController < ActionController::API
         JWT.decode(token, 'pray_for_snow', true, algorithm: 'HS256')
       resuce JWT::DecodeError
         nill
+      end
     end
   end
 
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::API
   end
 
   def logged_in?
-    !!current #double bang (!!) returns boolean value
+    !!current_admin #double bang (!!) returns boolean value
   end     
     
   def authorized #Prompts user to log in if they are not authorized to view page or do action
