@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_033558) do
+ActiveRecord::Schema.define(version: 2020_09_29_205106) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_033558) do
     t.string "time"
     t.string "icon_url"
     t.integer "admin_id"
+    t.integer "waitlist"
     t.index ["admin_id"], name: "index_events_on_admin_id"
   end
 
