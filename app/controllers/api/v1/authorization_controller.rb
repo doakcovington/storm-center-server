@@ -7,7 +7,7 @@ class Api::V1::AuthorizationController < ApplicationController
     if @admin && @admin.authenticate(admin_params[:password])
       # encode token comes from ApplicationController
       token = encode_token({ user_id: @admin.id })
-      render json: { admin: UserSerializer.new(@admin), jwt: token }, status: :accepted
+      render json: { admin: AdminSerializer.new(@admin), jwt: token }, status: :accepted
     else
       render json: { error: 'Invalid Login' }, status: :unauthorized
     end
