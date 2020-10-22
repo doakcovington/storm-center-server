@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
       token = auth_header.split(' ')[1]
       begin
         JWT.decode(token, 'pray_for_snow', true, algorithm: 'HS256')
-      resuce JWT::DecodeError
+      rescue JWT::DecodeError
         nill
       end
     end
