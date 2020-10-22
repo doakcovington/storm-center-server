@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
   #calls authorized before anything else
-  #before_action :authorized 
+  before_action :authorized 
   
   def encode_token(payload)
     JWT.encode(payload, 'pray_for_snow')
