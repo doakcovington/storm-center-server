@@ -1,19 +1,33 @@
 class Api::V1::AdminsController < ApplicationController
 
-  skip_before_action :authroized, only: [:create] #skips authorized action to allow admin creation
+  before_action :authorized
 
   def create
     @admin = Admin.create(admin_params)
     if @admin.valid?
-      @token = encode_token(admin_id: @admin.id) #payload for encode_token method in application controller
-      render json: { admin: AdminSerializer.new(@admin), jwt: @token }, status: :created
+      token = encode_token({admin_id: @admin.id})
+      render json: {admin: @admin, token: token}
     else
-      render json: { error: 'failed to create admin' }, status: :not_acceptable
+      render json: {error: "Invalid email or password"}
     end
   end
 
+  # LOGGING IN
+  def login
+    @admin = Admin.find_by(email: params[:email])
+
+    if @admin && @admin.authenticate(params[:password])
+      token = encode_token({admin_id: @admin.id})
+      render json: {admin: @admin, token: token}
+    else
+      render json: {error: "Invalid email or password"}
+    end
+  end
+
+  
   private
+
   def admin_params
-    params.require(:admin).permit(:name, :email, :password)
+    params.permit(:email, :password)
   end
 end
