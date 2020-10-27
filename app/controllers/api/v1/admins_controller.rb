@@ -1,6 +1,6 @@
 class Api::V1::AdminsController < ApplicationController
 
-  before_action :authorized
+  #before_action :authorized
 
   def create
     @admin = Admin.create(admin_params)
