@@ -8,6 +8,8 @@
 
 heidi = Admin.create(name: "Heidi", email: "Heidi@email.com", password: "123")
 
+user = User.create(email: 'jane@gmail.com', password: '123')
+
 doak = Tutor.create(name: 'Doak', speciality: 'Science', phonenumber: '555-555-5555', email:'doak@email.com', admin_id: 1)
 john = Tutor.create(name: 'John', speciality: 'Math', phonenumber: '444-444-4444', email:'john@email.com', admin_id: 1)
 
