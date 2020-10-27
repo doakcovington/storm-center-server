@@ -20,4 +20,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def auto_login
+    render json: @user
+  end
+
+  private 
+
+  def user_params
+    params.permit(:email, :password)
+  end
+
 end
